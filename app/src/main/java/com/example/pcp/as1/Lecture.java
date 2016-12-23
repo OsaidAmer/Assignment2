@@ -9,6 +9,7 @@ public class Lecture {
     String date;
     String lectureNumber;
     int iconId;
+    int i ;
 
 
     public Lecture(){
