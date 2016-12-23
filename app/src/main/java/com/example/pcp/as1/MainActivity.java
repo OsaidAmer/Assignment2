@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //WEB
-        Lecture l = new Lecture("Web - ilan","lecture "+(web_lec++),datesList[i]+"/2016",R.drawable.ilan);
+        Lecture l = new Lecture("Web - ilan","lecture "+(web_lec++),datesList[i]+"/2016",R.drawable.ilandem);
         lectureList.add(l);
         ++i;
 
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //WEB
-        l = new Lecture("Web - ilan","lecture "+(web_lec++),datesList[i]+"/2016",R.drawable.ilan);
+        l = new Lecture("Web - ilan","lecture "+(web_lec++),datesList[i]+"/2016",R.drawable.ilandem);
         lectureList.add(l);
         ++i;
 
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //WEB
-        l = new Lecture("Web - ilan","lecture "+(web_lec++),datesList[i]+"/2016",R.drawable.ilan);
+        l = new Lecture("Web - ilan","lecture "+(web_lec++),datesList[i]+"/2016",R.drawable.ilandem);
         lectureList.add(l);
         ++i;
 
