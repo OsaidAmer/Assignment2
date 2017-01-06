@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Assignment1</string>
+    <string name="fragBtn">Fragment Operations</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ADD_btn">Add</string>
+    <string name="REPLACE_btn">Replace</string>
+    <string name="REMOVE_btn">Remove</string>
+
 </resources>

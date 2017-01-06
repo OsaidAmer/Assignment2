@@ -1,7 +1,6 @@
 package com.example.pcp.as1;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -9,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -17,8 +17,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private List<Lecture> lectureList = new ArrayList<>(); // model
     RecyclerView recyclerView;   // view
+    Button fragmentBtn;
     private LectureAdapter mAdapter;     // controller
-    String[] datesList = new String[66];
+    String[] datesList = new String[67];
     Model model = new Model();
 
     @Override
@@ -27,34 +28,51 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view); // binding by id
+        fragmentBtn = (Button) findViewById(R.id.fragment_button) ;
 
         mAdapter = new LectureAdapter(lectureList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
+        fragmentBtnHandler();
 
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                //skipping lectures according to loz that aren't android!
-                if(position > 0 && position < 13){
-                    Lecture lecture = lectureList.get(position);
-                    Toast.makeText(getApplicationContext(), "google drive required!", Toast.LENGTH_SHORT).show();
-                }
-//                Lecture lecture = lectureList.get(position);
-//                Toast.makeText(getApplicationContext(), position+" selected", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(model.getTopics().get(datesList[position])));
-                startActivity(intent);
-           }
+                //Toast.makeText(getApplicationContext(),String.valueOf(view.getId()),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
+                    //Intent intent = new Intent(getApplicationContext(), fragmentContainerActivity.class);
+                    //startActivity(intent);
 
-            @Override
-            public void onLongClick(View view, int position) {
+                    //else {
+//                    //skipping lectures according to loz that aren't android!
+//                    if (position > 0 && position < 13) {
+//                        Lecture lecture = lectureList.get(position);
+//                        Toast.makeText(getApplicationContext(), "google drive required!", Toast.LENGTH_SHORT).show();
+//                    }
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(model.getTopics().get(datesList[position])));
+//                    startActivity(intent);
+//                }
+
             }
+            @Override
+            public void onLongClick(View view, int position) {}
+
         }));
 
         processLectures();
         getData(model);
+    }
+
+    public void fragmentBtnHandler(){
+        fragmentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), fragmentContainerActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     // this is a littel bit complex , it's according to loz
@@ -91,6 +109,11 @@ public class MainActivity extends AppCompatActivity {
     }
     // prepare data for java and android lectures.
     private void getData(Model model) {
+
+        // fragment example
+//        Lecture fragmentLecure = new Lecture("test", "testing fragment","test",R.drawable.android,R.id.button_fragment);
+//        lectureList.add(fragmentLecure);
+
         //java part
         int i = 0;
         int java_lec = 1;
@@ -140,6 +163,13 @@ public class MainActivity extends AppCompatActivity {
         l = new Lecture("Android - Or","lecture "+(android_lect++),datesList[i]+"/2016",R.drawable.oressel);
         lectureList.add(l);
 
+        ++i;
+        l = new Lecture("Android - Or","lecture "+(android_lect++),datesList[i]+"/2016",R.drawable.oressel);
+        lectureList.add(l);
+
+        ++i;
+        l = new Lecture("Android - Or","lecture - "+(android_lect++)+"AsyncTask",datesList[i]+"/2016",R.drawable.oressel);
+        lectureList.add(l);
 
         mAdapter.notifyDataSetChanged();
     }

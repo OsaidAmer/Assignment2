@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    android:id="@+id/side_panel"
+    tools:context="com.example.pcp.as1.AsynctaskFragment"
+    android:layout_gravity="center">
+
+
+    <Button
+        android:text="Button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button" />
+
+    <ImageView
+        android:id="@+id/asynctask_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"/>
+
+    <Button
+        android:text="Button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2" />
+
+    <ImageView
+        android:id="@+id/picasso_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -5,17 +5,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.List;
 
 public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.MyViewHolder>{
-
     private List<Lecture> lecturesList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView lecture_topic,lecture_number , lecture_date;
         public ImageView lecture_iv;
+        public Button lecture_btn;
 
         public MyViewHolder(View view) {
             super(view);
@@ -23,6 +24,7 @@ public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.MyViewHo
             lecture_number = (TextView) view.findViewById(R.id.lectNumberId);
             lecture_date = (TextView) view.findViewById(R.id.lectDateId);
             lecture_iv = (ImageView) view.findViewById(R.id.profile_pic_id);
+
         }
     }
 
@@ -35,7 +37,6 @@ public class LectureAdapter extends RecyclerView.Adapter<LectureAdapter.MyViewHo
     public LectureAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.lecture_list_row, parent, false);
-//        View view = inflater.inflate(R.layout.lecture_list_row,parent,false);
         return new MyViewHolder(itemView);
     }
 

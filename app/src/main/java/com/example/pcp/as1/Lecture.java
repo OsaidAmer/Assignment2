@@ -9,17 +9,25 @@ public class Lecture {
     String date;
     String lectureNumber;
     int iconId;
-    int i ;
+    int btnId;
 
 
     public Lecture(){
 
     }
+
     public Lecture(String topic, String lectureNumber, String date,int iconId){
         this.topic = topic;
         this.lectureNumber = lectureNumber;
         this.date = date;
         this.iconId = iconId;
+    }
+    public Lecture(String topic, String lectureNumber, String date,int iconId,int btnId){
+        this.topic = topic;
+        this.lectureNumber = lectureNumber;
+        this.date = date;
+        this.iconId = iconId;
+        this.btnId = btnId;
     }
 
     public String getTopic() {
@@ -45,5 +53,14 @@ public class Lecture {
     public void setDate(String date) {
         this.date = date;
     }
+
+    public int getBtnId() {
+        return btnId;
+    }
+
+    public void setBtnId(int btnId) {
+        this.btnId = btnId;
+    }
+
 
 }
