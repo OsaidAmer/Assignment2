@@ -1,6 +1,7 @@
 package com.example.pcp.as1;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -40,20 +41,14 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                //Toast.makeText(getApplicationContext(),String.valueOf(view.getId()),Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(getApplicationContext(), fragmentContainerActivity.class);
-                    //startActivity(intent);
-
-                    //else {
-//                    //skipping lectures according to loz that aren't android!
-//                    if (position > 0 && position < 13) {
-//                        Lecture lecture = lectureList.get(position);
-//                        Toast.makeText(getApplicationContext(), "google drive required!", Toast.LENGTH_SHORT).show();
-//                    }
-//                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(model.getTopics().get(datesList[position])));
-//                    startActivity(intent);
-//                }
+                //Toast.makeText(getApplicationContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
+                   //skipping lectures according to loz that aren't android!
+                if (position > 0 && position < 13) {
+                    Lecture lecture = lectureList.get(position);
+                    Toast.makeText(getApplicationContext(), "gmail and google drive required!", Toast.LENGTH_LONG).show();
+                }
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(model.getTopics().get(datesList[position])));
+                startActivity(intent);
 
             }
             @Override
@@ -75,19 +70,21 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // this is a littel bit complex , it's according to loz
+    // this is a little bit complex , it's according to loz
     private void processLectures(){
         int[] months_end = {30,31,31,28,31};
         int[] months =     {11,12,1,2,3};
         int in = 0;
         int counter = 1;
         int d = 1;
+
         // course started 31/10/2016
         int day = 31;
         datesList[0] = "31/10";
 
         day = 2;
         counter = 2; // number of times we learn a week , 2 -> wednesday
+
         //November
         while(in <= months.length-1) {
             int last_day_of_month = months_end[in];
@@ -109,11 +106,6 @@ public class MainActivity extends AppCompatActivity {
     }
     // prepare data for java and android lectures.
     private void getData(Model model) {
-
-        // fragment example
-//        Lecture fragmentLecure = new Lecture("test", "testing fragment","test",R.drawable.android,R.id.button_fragment);
-//        lectureList.add(fragmentLecure);
-
         //java part
         int i = 0;
         int java_lec = 1;
@@ -124,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
         for (; i < 13 ; i++){
             Lecture l = new Lecture("Java - Elena","lecture "+(java_lec++),datesList[i]+"/2016",R.drawable.matusevichelena);
             lectureList.add(l);
-
         }
 
         //WEB
@@ -149,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
             lectureList.add(l);
             ++i;
         }
-
         //WEB
         l = new Lecture("Web - ilan","lecture "+(web_lec++),datesList[i]+"/2016",R.drawable.ilandem);
         lectureList.add(l);
@@ -163,12 +153,25 @@ public class MainActivity extends AppCompatActivity {
         l = new Lecture("Android - Or","lecture "+(android_lect++),datesList[i]+"/2016",R.drawable.oressel);
         lectureList.add(l);
 
+        //SQL
+        for(int k = 0 ; k < 4 ; k++){
+            ++i;
+            l = new Lecture("SQL - Gil","lecture "+(android_lect++),datesList[i]+"/2016",R.drawable.gil);
+            lectureList.add(l);
+        }
+        //Android
+        for(int k = 0 ; k < 2 ; k++){
+            ++i;
+            l = new Lecture("Android - Or","lecture "+(android_lect++),datesList[i]+"/2016",R.drawable.oressel);
+            lectureList.add(l);
+        }
+
         ++i;
-        l = new Lecture("Android - Or","lecture "+(android_lect++),datesList[i]+"/2016",R.drawable.oressel);
+        l = new Lecture("Project - Shalom","lecture "+(android_lect++),datesList[i]+"/2016",R.drawable.shalomweiss);
         lectureList.add(l);
 
         ++i;
-        l = new Lecture("Android - Or","lecture - "+(android_lect++)+"AsyncTask",datesList[i]+"/2016",R.drawable.oressel);
+        l = new Lecture("Android - Or","lecture "+(android_lect++) +"Asynctask",datesList[i]+"/2016",R.drawable.oressel);
         lectureList.add(l);
 
         mAdapter.notifyDataSetChanged();

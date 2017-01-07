@@ -37,12 +37,22 @@ public class Model {
         topics.put("12/12","https://developer.android.com/reference/android/widget/ScrollView.html"); // lecture4
         topics.put("16/12","https://moringaschool.files.wordpress.com/2015/05/capture1.png"); // lecture5
         topics.put("19/12","http://www.vogella.com/tutorials/Git/article.html#what-is-git"); // lecture 6
+        topics.put("2/1","http://www.vogella.com/tutorials/AndroidFragments/article.html"); // lecture 7
+        topics.put("6/1","http://www.vogella.com/tutorials/AndroidBackgroundProcessing/article.html#background-processing-in-android"); // lecture 8
+
+        //Project
+        topics.put("4/1","https://s30.postimg.org/hkm108g29/project_structure.png");
+
+        //SQL
+        topics.put("21/12","https://dev.mysql.com/downloads/workbench/"); // lecture 1
+        topics.put("23/12","http://www.w3schools.com/sql/sql_syntax.asp");  // lecture 2
+        topics.put("26/12","http://www.w3schools.com/sql/sql_join.asp");  // lecture 3
+        topics.put("28/12","http://www.w3schools.com/sql/sql_insert.asp");  // lecture 4
 
     }
     public HashMap<String, String> getTopics() {
         return topics;
     }
-
     public void setTopics(HashMap<String, String> topics) {
         this.topics = topics;
     }
