@@ -1,35 +1,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
     android:id="@+id/side_panel"
     tools:context="com.example.pcp.as1.AsynctaskFragment"
-    android:layout_gravity="center">
-
+    >
 
     <Button
-        android:text="Button1"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:text="async download"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button" />
+        android:id="@+id/asyncbutton"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
+        android:layout_gravity="center"
         android:id="@+id/asynctask_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"/>
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        />
 
     <Button
-        android:text="Button2"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:text="picasso download"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button2" />
+        android:id="@+id/picassobutton"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
+        android:layout_gravity="center"
         android:id="@+id/picasso_image"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        />
+
+
 
 </LinearLayout>

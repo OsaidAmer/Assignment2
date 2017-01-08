@@ -7,11 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,13 +20,14 @@ public class MainActivity extends AppCompatActivity {
     private LectureAdapter mAdapter;     // controller
     String[] datesList = new String[67];
     Model model = new Model();
+    static int recyclerViewClickedPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view); // binding by id
+        // binding by id
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         fragmentBtn = (Button) findViewById(R.id.fragment_button) ;
 
         mAdapter = new LectureAdapter(lectureList);
@@ -41,19 +40,22 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                //Toast.makeText(getApplicationContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
-                   //skipping lectures according to loz that aren't android!
-                if (position > 0 && position < 13) {
-                    Lecture lecture = lectureList.get(position);
-                    Toast.makeText(getApplicationContext(), "gmail and google drive required!", Toast.LENGTH_LONG).show();
+                recyclerViewClickedPosition = position;
+                if(position == 29){
+                    Intent intent = new Intent(getApplicationContext(),fragmentContainerActivity.class);
+                    startActivity(intent);
+                }else {
+                    //skipping lectures according to loz that aren't android!
+                    if (position > 0 && position < 13) {
+                        Lecture lecture = lectureList.get(position);
+                        Toast.makeText(getApplicationContext(), "gmail and google drive required!", Toast.LENGTH_LONG).show();
+                    }
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(model.getTopics().get(datesList[position])));
+                    startActivity(intent);
                 }
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(model.getTopics().get(datesList[position])));
-                startActivity(intent);
-
             }
             @Override
             public void onLongClick(View view, int position) {}
-
         }));
 
         processLectures();
@@ -69,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     // this is a little bit complex , it's according to loz
     private void processLectures(){
         int[] months_end = {30,31,31,28,31};
@@ -77,11 +78,9 @@ public class MainActivity extends AppCompatActivity {
         int in = 0;
         int counter = 1;
         int d = 1;
-
         // course started 31/10/2016
         int day = 31;
         datesList[0] = "31/10";
-
         day = 2;
         counter = 2; // number of times we learn a week , 2 -> wednesday
 
@@ -102,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
             ++in;
             day = day % months_end[in-1];
         }
-
     }
     // prepare data for java and android lectures.
     private void getData(Model model) {
@@ -111,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
         int java_lec = 1;
         int web_lec= 1;
         int android_lect = 1;
+        int project = 1;
+        int sql_lect = 1;
 
         //Java
         for (; i < 13 ; i++){
@@ -143,12 +143,11 @@ public class MainActivity extends AppCompatActivity {
         //WEB
         l = new Lecture("Web - ilan","lecture "+(web_lec++),datesList[i]+"/2016",R.drawable.ilandem);
         lectureList.add(l);
-        ++i;
 
         //android
+        ++i;
         l = new Lecture("Android - Or","lecture "+(android_lect++),datesList[i]+"/2016",R.drawable.oressel);
         lectureList.add(l);
-
         ++i;
         l = new Lecture("Android - Or","lecture "+(android_lect++),datesList[i]+"/2016",R.drawable.oressel);
         lectureList.add(l);
@@ -156,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
         //SQL
         for(int k = 0 ; k < 4 ; k++){
             ++i;
-            l = new Lecture("SQL - Gil","lecture "+(android_lect++),datesList[i]+"/2016",R.drawable.gil);
+            l = new Lecture("SQL - Gil","lecture "+(sql_lect++),datesList[i]+"/2016",R.drawable.gil);
             lectureList.add(l);
         }
         //Android
@@ -167,11 +166,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ++i;
-        l = new Lecture("Project - Shalom","lecture "+(android_lect++),datesList[i]+"/2016",R.drawable.shalomweiss);
+        l = new Lecture("Project - Shalom","lecture "+(project++),datesList[i]+"/2016",R.drawable.shalomweiss);
         lectureList.add(l);
 
         ++i;
-        l = new Lecture("Android - Or","lecture "+(android_lect++) +"Asynctask",datesList[i]+"/2016",R.drawable.oressel);
+        l = new Lecture("Android - Or","lecture "+(android_lect++) +" Asynctask",datesList[i]+"/2016",R.drawable.oressel);
         lectureList.add(l);
 
         mAdapter.notifyDataSetChanged();

@@ -12,11 +12,21 @@ public class fragmentContainerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_container);
         fm = getSupportFragmentManager();
-        moveToButtonsFragment(); // display 3 buttons
+        if(MainActivity.recyclerViewClickedPosition == 29){
+            acynctasnAndpicassoFragment();
+        }else {
+            buttonsOperationsFragment(); // display 3 buttons
+        }
     }
 
+    public void acynctasnAndpicassoFragment(){
+        AsynctaskFragment asynctaskFragment = new AsynctaskFragment();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.add(R.id.activity_fragment_container,asynctaskFragment);
+        ft.commit();
+    }
     // 3 Buttons fragment
-    public void moveToButtonsFragment(){
+    public void buttonsOperationsFragment(){
         ThreeOperationsFragment threeOperationsFragment = new ThreeOperationsFragment();
         FragmentTransaction ft = fm.beginTransaction();
         ft.add(R.id.activity_fragment_container,threeOperationsFragment);
