@@ -9,8 +9,6 @@ public class Lecture {
     String date;
     String lectureNumber;
     int iconId;
-    int btnId;
-
 
     public Lecture(){
 
@@ -27,39 +25,25 @@ public class Lecture {
         this.lectureNumber = lectureNumber;
         this.date = date;
         this.iconId = iconId;
-        this.btnId = btnId;
     }
 
     public String getTopic() {
         return topic;
     }
-
     public String getLectureNumber() {
         return lectureNumber;
     }
-
     public void setLectureNumber(String lectureNumber) {
         this.lectureNumber = lectureNumber;
     }
-
     public void setTopic(String topic) {
         this.topic = topic;
     }
-
     public String getDate() {
         return date;
     }
-
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public int getBtnId() {
-        return btnId;
-    }
-
-    public void setBtnId(int btnId) {
-        this.btnId = btnId;
     }
 
 

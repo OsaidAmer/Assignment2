@@ -12,7 +12,7 @@ public class fragmentContainerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_container);
         fm = getSupportFragmentManager();
-        if(MainActivity.recyclerViewClickedPosition == 29){
+        if(LectureAdapter.recyclerViewClickedPosition == 29){
             acynctasnAndpicassoFragment();
         }else {
             buttonsOperationsFragment(); // display 3 buttons

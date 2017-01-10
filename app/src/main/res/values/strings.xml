@@ -5,5 +5,10 @@
     <string name="ADD_btn">Add</string>
     <string name="REPLACE_btn">Replace</string>
     <string name="REMOVE_btn">Remove</string>
+    <string name="asynctask">asyncktask download</string>
+    <string name="picasso">picasso download</string>
+    <string name="newUIAdded">New UI Added</string>
+    <string name="replacedUI">New UI Replace</string>
+    <string name="emptyString"> </string>
 
 </resources>

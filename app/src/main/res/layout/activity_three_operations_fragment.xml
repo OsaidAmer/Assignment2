@@ -9,19 +9,19 @@
 
     <Button
         android:id="@+id/addfrag_btnId"
-        android:text="Add"
+        android:text="@string/ADD_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/repfrag_btnId"
-        android:text="Replace"
+        android:text="@string/REPLACE_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/rmfrag_btnId"
-        android:text="Remove"
+        android:text="@string/REMOVE_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

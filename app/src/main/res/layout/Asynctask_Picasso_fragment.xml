@@ -11,7 +11,7 @@
     <Button
         android:layout_gravity="center"
         android:textAllCaps="false"
-        android:text="async download"
+        android:text="@string/asynctask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/asyncbutton"
@@ -28,7 +28,7 @@
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:textAllCaps="false"
-        android:text="picasso download"
+        android:text="@string/picasso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/picassobutton"

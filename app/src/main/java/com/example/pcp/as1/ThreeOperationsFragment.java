@@ -12,14 +12,12 @@ import UI.Fragments.AddUIFragment;
 import UI.Fragments.RemoveUIFragment;
 import UI.Fragments.ReplaceUIFragment;
 
-
+/** this class is responsible for the logic behind the 3 operations ADD,REPLACE,REMOVE **/
 public class ThreeOperationsFragment extends Fragment {
     Button addFragmentBtn, repFragmentBtn, rmFragmentBtn;
     FragmentTransaction ft;
     FragmentManager fm;
     AddUIFragment addUIFragment;
-    ReplaceUIFragment replaceUIFragment;
-    RemoveUIFragment removeUIFragment;
 
     static Fragment fr;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
